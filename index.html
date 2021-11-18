@@ -12,15 +12,231 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Font CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&family=Ubuntu:wght@400&display=swap"
         rel="stylesheet">
 
     <!-- Additional CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="stylesheet/index.css">
-
 </head>
+
+<style>
+    :root {
+        --primary_t1: #760bff;
+        --primary_t2: #5e00d7;
+        --primary_t3: #cea9ff;
+        --primary_t4: #ddc2ff;
+        --primary_t5: #3e008f;
+        --primary_t6: #5700c7;
+        --primary_t7: #6400e6;
+        --primary_t8: #28005c;
+        --primary_t9: #e8d7ff;
+        --primary_shadow: rgba(118, 11, 255, 0.5);
+        --primary_text: #fff;
+        --x: -1;
+        filter: invert(var(--x)) hue-rotate(190deg);
+    }
+
+    html {
+        position: relative;
+        min-height: 100% !important;
+    }
+
+    body {
+        margin: 0 0 6rem;
+    }
+
+    .oxy,
+    .btn {
+        font-family: 'Oxygen', sans-serif;
+        font-weight: bold;
+    }
+
+    .navbar-toggler {
+        background-image: url(/IMG/manu.png) no-repeat center center;
+    }
+
+    .modal-footer {
+        display: flex;
+        justify-content: center;
+    }
+
+    #social {
+        /* margin: auto; */
+        justify-items: flex-start;
+    }
+
+
+    .card {
+        border-radius: 7px;
+        border-color: var(--primary_t1);
+        box-shadow: 0px 0px 3px var(--primary_t5);
+    }
+
+    #notes .card-body {
+        background-color: var(--primary_t9);
+        color: var(--primary_t8);
+        border-radius: 5px;
+        margin: 0rem 0.5rem;
+        padding: 0.8rem !important;
+    }
+
+    .form-control:hover {
+        border-color: var(--primary_t1);
+        box-shadow: 0px 0px 5px 1px var(--primary_t2);
+    }
+
+    #addTitle {
+        font-weight: 500;
+        font-size: 1.1rem;
+        color: var(--primary_t1);
+    }
+
+    .btn {
+        font-weight: bold;
+        border: 0px;
+        padding: 0.2rem 0.5rem !important;
+    }
+
+    /* Modal */
+    .modal-body img {
+        border: 0px;
+        border-radius: 10px;
+        width: 20rem;
+        background-color: var(--primary_t3);
+        box-shadow: 0px 0px 5px 2px var(--primary_t3);
+    }
+
+    #footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        overflow: hidden;
+        background-image: linear-gradient(rgba(255, 255, 255, 0), var(--primary_t1)) !important;
+    }
+
+
+    .badge-primary[href]:hover,
+    .badge-primary[href]:focus {
+        color: var(--primary_text);
+        background-color: var(--primary_t2);
+    }
+
+    .bg-primary {
+        background-color: var(--primary_t1) !important;
+    }
+
+    a.bg-primary:hover,
+    a.bg-primary:focus,
+    button.bg-primary:hover,
+    button.bg-primary:focus {
+        background-color: var(--primary_t2) !important;
+    }
+
+    .border-primary {
+        border-color: var(--primary_t1) !important;
+    }
+
+    .btn-primary {
+        color: var(--primary_text);
+        background-color: var(--primary_t1);
+        border-color: var(--primary_t1);
+    }
+
+    .btn-primary:hover {
+        color: var(--primary_text);
+        background-color: var(--primary_t7);
+        border-color: var(--primary_t2);
+    }
+
+    .btn-primary:focus,
+    .btn-primary.focus {
+        box-shadow: 0 0 0 0.2rem var(--primary_shadow);
+    }
+
+    .btn-primary.disabled,
+    .btn-primary:disabled {
+        color: var(--primary_text);
+        background-color: var(--primary_t1);
+        border-color: var(--primary_t1);
+    }
+
+    .btn-primary:not(:disabled):not(.disabled):active,
+    .btn-primary:not(:disabled):not(.disabled).active,
+    .show>.btn-primary.dropdown-toggle {
+        color: var(--primary_text);
+        background-color: var(--primary_t2);
+        border-color: var(--primary_t6);
+    }
+
+    .btn-primary:not(:disabled):not(.disabled):active:focus,
+    .btn-primary:not(:disabled):not(.disabled).active:focus,
+    .show>.btn-primary.dropdown-toggle:focus {
+        box-shadow: 0 0 0 0.2rem var(--primary_shadow);
+    }
+
+    .btn-outline-primary {
+        color: var(--primary_t1);
+        background-color: transparent;
+        border-color: var(--primary_t1);
+    }
+
+    .btn-outline-primary:hover {
+        color: var(--primary_text);
+        background-color: var(--primary_t1);
+        border-color: var(--primary_t1);
+    }
+
+    .btn-outline-primary:focus,
+    .btn-outline-primary.focus {
+        box-shadow: 0 0 0 0.2rem var(--primary_shadow);
+    }
+
+    .btn-outline-primary.disabled,
+    .btn-outline-primary:disabled {
+        color: var(--primary_t1);
+        background-color: transparent;
+    }
+
+    .btn-outline-primary:not(:disabled):not(.disabled):active,
+    .btn-outline-primary:not(:disabled):not(.disabled).active,
+    .show>.btn-outline-primary.dropdown-toggle {
+        color: var(--primary_text);
+        background-color: var(--primary_t1);
+        border-color: var(--primary_t1);
+    }
+
+    .btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+    .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
+    .show>.btn-outline-primary.dropdown-toggle:focus {
+        box-shadow: 0 0 0 0.2rem var(--primary_shadow);
+    }
+
+    .list-group-item-primary {
+        color: var(--primary_t5);
+        background-color: var(--primary_t4);
+    }
+
+    .list-group-item-primary.list-group-item-action:hover,
+    .list-group-item-primary.list-group-item-action:focus {
+        color: var(--primary_t5);
+        background-color: var(--primary_t3);
+    }
+
+    .list-group-item-primary.list-group-item-action.active {
+        color: var(--primary_text);
+        background-color: var(--primary_t5);
+        border-color: var(--primary_t5);
+    }
+
+    .text-primary {
+        color: var(--primary_t1) !important;
+    }
+
+    a.text-primary:hover,
+    a.text-primary:focus {
+        color: var(--primary_t2) !important;
+    }
+</style>
 
 <body>
 
@@ -161,7 +377,133 @@
 
     <!-- Additional JavaScripts -->
     <script src="https://kit.fontawesome.com/33dfc97c0a.js" crossorigin="anonymous"></script>
-    <script src="/Clicker/index.js"></script>
+
+    <script>
+        let ls = localStorage;
+        showNotes();
+
+        //Add Notes
+        function addNote() {
+            let temp;
+            let notes = ls.getItem('notes');
+            let title = document.getElementById('addTitle');
+
+            if (notes == null)
+                notesArr = [];
+            else
+                notesArr = JSON.parse(notes);
+
+            let str = title.value;
+
+            for (let i = str.length; i >= 0; i--) {
+                if (str[i] == 'h' && str[i + 1] == 't')
+                    notesArr.push(str.slice(i, start));
+
+                if (str[i] == 'h')
+                    var start = i;
+            }
+
+            ls.setItem('notes', JSON.stringify(notesArr));
+            title.value = '';
+            showNotes();
+        }
+        //Show Notes
+        function showNotes() {
+            let notes = ls.getItem('notes');
+
+            if (notes == null)
+                notesArr = [];
+            else
+                notesArr = JSON.parse(notes);
+
+            let html = "";
+            let display = document.getElementById('notes');
+
+            for (i = 0; i < notesArr.length; i++) {
+                html +=
+                    ` <div id="${i}" class="card box border-primary m-1 mx-3 d-flex flex-row align-items-center" style="min-width:25rem">
+            <p class="card-header text-primary w-100" id="addTitle">${notesArr[i]}
+            </p>
+            <i class="fas fa-trash-alt float-right btn mr-3" onclick="deleteNote(${i})"></i>
+            </div>`;
+            }
+
+            if (notesArr.length != 0)
+                display.innerHTML = html;
+            else
+                display.innerHTML = "Nothing to show! Add Notes...";
+        }
+        //Delete Notes
+        function deleteNote(i) {
+            let notes = ls.getItem('notes');
+
+            if (notes == null) {
+                notesArr = [];
+            }
+            else {
+                notesArr = JSON.parse(notes);
+            }
+
+            notesArr.splice(i, 1);
+            ls.setItem("notes", JSON.stringify(notesArr));
+            showNotes();
+
+        }
+        function deleteAll() {
+            let check = confirm("Are you want to delete all links");
+            let notes = ls.getItem('notes');
+            if (notes == null)
+                notesArr = [];
+            else
+                notesArr = JSON.parse(notes);
+
+            if (check)
+                ls.clear('notes');
+
+            showNotes();
+        }
+        //Open All links
+        function openAll() {
+            let notes = ls.getItem('notes');
+
+            if (notes == null)
+                notesArr = [];
+            else
+                notesArr = JSON.parse(notes);
+
+            for (i = 0; i < notesArr.length; i++)
+                window.open(notesArr[i]);
+        }
+        //Theme Changer
+        document.documentElement.style.setProperty('--x', ls.getItem('theme'));
+        function darkmode() {
+            if (ls.getItem('theme') != 1) {
+                document.documentElement.style.setProperty('--x', '1');
+                ls.setItem("theme", 1);
+            } else {
+                document.documentElement.style.setProperty('--x', '-1');
+                ls.setItem("theme", -1);
+            }
+        }
+
+        let search = document.getElementById('searchTxt');
+        search.addEventListener('input', () => {
+            let box = document.getElementsByClassName('box');
+            let txt = search.value;
+
+            Array.from(box).forEach(function (element) {
+                let linkTxt = element.getElementsByTagName('p')[0].innerText;
+
+                if (linkTxt.includes(txt)) {
+                    console.log(txt)
+                    console.log(linkTxt)
+                    element.style.display = 'flex';
+                }
+                else
+                    element.style.display = 'none';
+            })
+        })
+    </script>
 </body>
 
 </html>
