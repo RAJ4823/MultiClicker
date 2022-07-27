@@ -13,13 +13,13 @@ function addNote() {
         notesArr = JSON.parse(notes);
 
     let str = title.value;
+    var start = str.length;
 
     for (let i = str.length; i >= 0; i--) {
-        if (str[i] == 'h' && str[i + 1] == 't')
+        if (str[i] == 'h' && str[i + 1] == 't' && str[i + 2] == 't' && str[i + 3] == 'p') {
             notesArr.push(str.slice(i, start));
-
-        if (str[i] == 'h')
-            var start = i;
+            start = i;
+        }
     }
 
     ls.setItem('notes', JSON.stringify(notesArr));
